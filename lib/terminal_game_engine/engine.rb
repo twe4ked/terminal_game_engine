@@ -1,21 +1,24 @@
 module TerminalGameEngine
   class Engine
-    attr_accessor :tick
+    DEFAULT_TICK_SLEEP = 0.1
 
-    def self.tick(&block)
-      self.new(&block).tap(&:call)
+    attr_accessor :tick, :tick_sleep
+
+    def self.tick(*args, &block)
+      self.new(*args, &block).tap(&:call)
     end
 
-    def initialize(&block)
+    def initialize(tick_sleep: DEFAULT_TICK_SLEEP, &block)
       @tick = 0
       @block = block
+      @tick_sleep = tick_sleep
     end
 
     def call
       loop do
         @block.call @tick
         @tick += 1
-        sleep 0.1
+        sleep tick_sleep
       end
     end
   end
