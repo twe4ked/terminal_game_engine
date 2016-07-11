@@ -1,5 +1,10 @@
 module TerminalGameEngine
   class Input
+    module Keys
+      CTRL_C = 3
+      ESCAPE = 27
+    end
+
     def self.call(&block)
       begin
         loop do

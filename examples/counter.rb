@@ -21,7 +21,7 @@ TerminalGameEngine::Engine.tick do |tick|
 
   TerminalGameEngine::Input.call do |key|
     case key
-    when 'q'.ord, 27, 3 # escape, ctrl-c
+    when 'q'.ord, TerminalGameEngine::Input::Keys::ESCAPE, TerminalGameEngine::Input::Keys::CTRL_C
       exit
     else
       frame.draw_center 1, key.to_s
