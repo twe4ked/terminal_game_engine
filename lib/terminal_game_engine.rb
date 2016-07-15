@@ -5,6 +5,10 @@ module TerminalGameEngine
     def on_tick(&block)
       TerminalGameEngine::Engine.tick &block
     end
+
+    def on_input(&block)
+      TerminalGameEngine::Input.call &block
+    end
   end
 
   def self.run(&block)

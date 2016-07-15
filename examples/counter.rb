@@ -18,12 +18,12 @@ TerminalGameEngine.run do
     frame.draw width-1, 0, '+'
     frame.draw width-1, height-1, '+'
 
-    TerminalGameEngine::Input.call do |key|
-      case key
+    on_input do |key_code|
+      case key_code
       when 'q'.ord, TerminalGameEngine::Input::Keys::ESCAPE, TerminalGameEngine::Input::Keys::CTRL_C
         exit
       else
-        frame.draw_center 1, key.to_s
+        frame.draw_center 1, key_code.to_s
       end
     end
 
