@@ -23,7 +23,8 @@ TerminalGameEngine.run do
       when 'q'.ord, TerminalGameEngine::Input::Keys::ESCAPE, TerminalGameEngine::Input::Keys::CTRL_C
         exit
       else
-        frame.draw_center 1, key_code.to_s
+        frame.draw 0, 1, ' ' * (number.length + 1)
+        frame.draw_center 1, key_code.chr
       end
     end
 
