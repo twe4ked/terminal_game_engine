@@ -64,14 +64,14 @@ module TerminalGameEngine
       print "\x1B[?25h"
     end
 
-    def self.setup
+    def self.setup(disable_cursor: true)
       clear_screen
-      disable_cursor
+      disable_cursor if disable_cursor
 
       $stdin.raw!
       at_exit do
         puts "\r"
-        enable_cursor
+        enable_cursor if disable_cursor
         $stdin.cooked!
         system 'stty sane'
       end
