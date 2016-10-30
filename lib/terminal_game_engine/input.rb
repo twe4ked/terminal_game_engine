@@ -1,8 +1,8 @@
 module TerminalGameEngine
   class Input
     module Keys
-      CTRL_C = 3
-      ESCAPE = 27
+      CTRL_C = ?\C-c
+      ESCAPE = "\e"
     end
 
     def self.call(&block)
