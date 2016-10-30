@@ -8,7 +8,7 @@ module TerminalGameEngine
     def self.call(&block)
       begin
         loop do
-          key = $stdin.read_nonblock(1).ord
+          key = $stdin.read_nonblock(1)
           block.call key
         end
       rescue Errno::EAGAIN
