@@ -1,3 +1,5 @@
+require 'io/console'
+
 module TerminalGameEngine
   class Frame
     attr_reader :rows
