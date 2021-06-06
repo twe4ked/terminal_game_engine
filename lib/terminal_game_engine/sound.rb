@@ -15,6 +15,7 @@ module TerminalGameEngine
         while line = stderr.readline
           logger.error line.chomp
         end
+      rescue EOFError
       end
     end
   end
